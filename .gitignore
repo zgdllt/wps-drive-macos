@@ -1,0 +1,19 @@
+.cloudbase-sites/
+.build/
+.vendor/
+dist/
+.DS_Store
+*.xcuserstate
+
+# Local account data and reports must never enter the public repository.
+*.log
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+.env
+.env.*
+account.json
+connection-*.json
+mounted-volume.json
+docs/COLD_FILE_MIGRATION.md

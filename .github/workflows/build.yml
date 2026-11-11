@@ -1,0 +1,35 @@
+name: Build macOS
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Fetch verified OpenList binary and source
+        run: bash scripts/fetch-engine.sh
+      - name: Verify catalog and isolated backend
+        run: bash scripts/test.sh
+      - name: Build and sign
+        run: bash scripts/build.sh
+      - name: Package DMG and ZIP
+        run: bash scripts/package.sh
+      - name: Upload release candidates
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: WPS-Drive-macos-arm64
+          path: dist/release/*
+          if-no-files-found: error
+          retention-days: 14

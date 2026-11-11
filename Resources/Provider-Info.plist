@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+    <key>CFBundleIdentifier</key><string>io.github.zgdllt.WPSDrive.Provider</string>
+    <key>CFBundleName</key><string>WPS Drive Provider</string>
+    <key>CFBundleExecutable</key><string>WPSDriveProvider</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
+    <key>CFBundleIcons</key><dict>
+        <key>CFBundlePrimaryIcon</key><dict>
+            <key>CFBundleIconFiles</key><array><string>AppIcon.png</string></array>
+            <key>CFBundleSymbolName</key><string>externaldrive.badge.icloud</string>
+        </dict>
+    </dict>
+    <key>CFBundlePackageType</key><string>XPC!</string>
+    <key>CFBundleShortVersionString</key><string>0.3.0</string>
+    <key>CFBundleVersion</key><string>5</string>
+    <key>LSMinimumSystemVersion</key><string>13.0</string>
+    <key>NSExtension</key><dict>
+        <key>NSExtensionPointIdentifier</key><string>com.apple.fileprovider-nonui</string>
+        <key>NSExtensionPrincipalClass</key><string>WPSDriveProvider.FileProviderExtension</string>
+        <key>NSExtensionFileProviderSupportsEnumeration</key><true/>
+        <key>NSExtensionFileProviderSupportsFailingUploadOnConflict</key><true/>
+        <key>NSExtensionFileProviderActions</key><array>
+            <dict>
+                <key>NSExtensionFileProviderActionIdentifier</key><string>io.github.zgdllt.WPSDrive.pin</string>
+                <key>NSExtensionFileProviderActionName</key><string>保留在本地</string>
+                <key>NSExtensionFileProviderActionActivationRule</key>
+                <string>SUBQUERY(fileproviderItems, $item, ($item.itemIdentifier != "NSFileProviderRootContainerItemIdentifier") AND ($item.userInfo.pinned != YES)).@count &gt; 0</string>
+            </dict>
+            <dict>
+                <key>NSExtensionFileProviderActionIdentifier</key><string>io.github.zgdllt.WPSDrive.unpin</string>
+                <key>NSExtensionFileProviderActionName</key><string>释放本地空间</string>
+                <key>NSExtensionFileProviderActionActivationRule</key>
+                <string>SUBQUERY(fileproviderItems, $item, $item.itemIdentifier != "NSFileProviderRootContainerItemIdentifier").@count &gt; 0</string>
+            </dict>
+        </array>
+    </dict>
+</dict></plist>
