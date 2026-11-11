@@ -6,12 +6,16 @@ WPS 网盘的本机挂载助手。Swift / AppKit 应用使用本机 OpenList 的
 
 0.3.0 默认使用原生云盘。关闭窗口后隐藏 Dock 图标，仅留菜单栏，连接继续运行。原生路径已在本机用 ad-hoc 签名跑通，不依赖 App Group 或付费开发者证书。
 
-这是独立非官方工具，当前准备作为实验性预发布，不是 WPS 官方客户端。
+无需安装 WPS 桌面客户端，仍需可用的 WPS 账号与云空间权限。
+网盘接入由 [OpenList](https://github.com/OpenListTeam/OpenList) 提供，感谢 OpenList 项目及贡献者。
+
+这是独立非官方工具，当前为实验性预发布，不是 WPS 官方客户端。
 真实 WPS 写入和其他 Mac 的首次安装尚未验收。
 
 ## 安装
 
-从本仓库的 GitHub Releases 获取 Apple Silicon 版 DMG 或 ZIP。打开 DMG，
+[下载 v0.3.0 Apple Silicon 版 DMG](https://github.com/zgdllt/wps-drive-macos/releases/download/v0.3.0/WPS-Drive-v0.3.0-macos-arm64.dmg)，
+或到 [Release 页面](https://github.com/zgdllt/wps-drive-macos/releases/tag/v0.3.0) 获取 ZIP 和校验文件。打开 DMG，
 将应用拖到“应用程序”，再启动并登录 WPS。首次默认选择“原生云盘”，
 按系统提示启用 WPS Drive 文件提供程序，然后点刷新。
 
@@ -103,4 +107,4 @@ flowchart LR
 - 不自动运行第三方工具的激活脚本，不重启 Finder 或整个 `fileproviderd`，不修改 SeaDrive。
 - 随应用打包的引擎宿主监测主进程退出，关闭自己的 OpenList 子进程；不部署系统守护进程。
 
-项目原创代码、脚本及图形采用 [MIT License](LICENSE)；独立捆绑的 OpenList 使用 AGPL-3.0，许可证及对应源码包含在应用内。第三方来源、版本与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。开发和问题反馈见 [CONTRIBUTING.md](CONTRIBUTING.md)，安全事项见 [SECURITY.md](SECURITY.md)。
+项目原创代码和脚本采用 [MIT License](LICENSE)；Apple 系统图形适用其独立条款。独立捆绑的 OpenList 使用 AGPL-3.0，许可证及对应源码包含在应用内。第三方来源、版本与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。开发和问题反馈见 [CONTRIBUTING.md](CONTRIBUTING.md)，安全事项见 [SECURITY.md](SECURITY.md)。

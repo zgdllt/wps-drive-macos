@@ -3,6 +3,11 @@
 目标版本：`v0.3.0`，实验性预发布。此文档记录发布操作，实际构建状态
 和可下载版本以仓库的 Actions 与 Releases 页面为准。
 
+2026-11-12，已公开发布 [v0.3.0 预发布安装包](https://github.com/zgdllt/wps-drive-macos/releases/tag/v0.3.0)。
+标签指向 `7fdc551111adf3d37152fe8c009dc6676e66a272`，安装包为本机已验收的
+`0.3.0 / build 5`；附件包括 DMG、ZIP 和 `SHA256SUMS`。公开下载后的
+两种安装包均通过 SHA-256 校验。
+
 ## 构建
 
 ```sh
@@ -42,6 +47,7 @@ WPS Drive for macOS 0.3.0（实验性预发布）
 
 在访达中浏览 WPS 云端文件，按需下载，并可保留在本地或释放本地空间。
 使用 Swift / AppKit、Apple File Provider 和本机 OpenList。
+无需安装 WPS 桌面客户端，仍需 WPS 账号与云空间权限。
 
 - 默认原生云盘；提供网络磁盘备选模式。
 - 红色云盘图标，关闭窗口后仅留菜单栏。
@@ -55,3 +61,6 @@ WPS Drive for macOS 0.3.0（实验性预发布）
 真实 WPS 上传、编辑保存、删除、跨端冲突和长期离线恢复尚未完成验收。
 这是独立非官方工具；WPS 接口变化可能影响连接。安装与首次启用见
 `docs/INSTALL.md`。
+
+网盘接入能力由 [OpenList](https://github.com/OpenListTeam/OpenList) 提供，
+感谢 OpenList 项目及贡献者。应用内包含其许可证及对应源码。
